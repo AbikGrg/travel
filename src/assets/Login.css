@@ -1,0 +1,142 @@
+:root{
+	--pixel: 8px;
+	--bcolor: crimson; /*rebeccapurple*/
+	--border: 1px solid #b9b9b9;
+	--btransparent: 1px solid transparent;
+}
+
+body{
+	margin-top: 25vh;
+	text-align: center;
+    background-image: url();
+}
+
+.form-holder,
+.form-controler{
+	display: inline-flex;
+	position: relative;
+	flex-direction:column;
+	margin-bottom:20px;
+}
+
+.form-holder{
+    box-shadow: 2px 2px 15px  rgba(0, 0, 0, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+	padding:40px;
+    border-radius: 2px;
+}
+.form-input{
+	padding: calc( var(--pixel) * 2) calc( var(--pixel) * 2) calc( var(--pixel) * 1.5);
+	font-size: 1.25rem;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
+.form-input::placeholder{
+	color: transparent;
+}
+
+.form-label-holder{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	display:flex;
+	z-index: -1;
+}
+
+.form-label-holder label{
+	position: relative;
+	padding-left: calc(var(--pixel)/2);
+	padding-right: calc(var(--pixel)/2);
+	color: rgba(0, 0, 0, 0.6);
+	line-height: 1;
+	font-size: 1.25rem;
+}
+
+.form-label-holder:before,
+.form-label-holder:after{
+	border: var(--border);
+	content: "";
+}
+
+.form-label-holder:before{
+	border-radius: 4px 0 0 4px;
+	border-right:none;
+	width: 10px;
+}
+
+.form-label-holder:after{
+	border-radius: 0 4px 4px 0;
+	border-left: none;
+	flex-grow:1;
+}
+
+.form-label-holder label span{
+	display:block;
+	color:rgba(0, 0, 0, 0.87);
+	padding-right: calc(var(--pixel)/2);
+	margin-right: calc(-1.5rem + calc( var(--pixel)/2));
+	pointer-events: none;
+	transform-origin: top left;
+	transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+	transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	transform: translate( calc(var(--pixel)/2), calc(var(--pixel)*2) ) scale(1);
+}
+
+.form-label-holder label:before,
+.form-label-holder label:after{
+	content: "";
+	width:100%;
+	pointer-events: none;
+	position: absolute;
+	left: 0;
+}
+
+.form-label-holder label:before{
+	border-top: var(--border);
+}
+
+.form-label-holder label:after{
+	border-bottom: var(--border);
+	bottom: 0;
+}
+
+.form-input:focus ~ span label:after,
+.form-input:focus ~ span:after,
+.form-input:focus ~ span:before{
+	border-color: var(--bcolor);
+	border-width: 2px;
+}
+
+.form-input:focus ~ span label:before,
+.form-input:not(:placeholder-shown) ~ span label:before{
+	border-top: var(--btransparent);
+}
+
+.form-input:focus ~ span label span,
+.form-input:not(:placeholder-shown) ~ span label span{
+	transform: translate( calc(var(--pixel)/2), calc(var(--pixel)*(-1))) scale(0.7);
+		color: var(--bcolor);
+}
+
+.form-button {
+	background-color: var(--bcolor);
+	color: #fff;
+	padding: var(--pixel) calc(var(--pixel)*2);
+	text-transform: uppercase;
+	line-height: 1.75;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	border: none;
+	border-radius: calc(var(--pixel)/2);
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+		0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+	
+}
+
+.form-button:focus{
+	box-shadow: 0 0 0 4px var(--bcolor);
+}

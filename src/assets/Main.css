@@ -1,0 +1,10 @@
+
+.text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
+}
+.text p {
+    font-weight :400;
+    font-family: sans-serif;
+    padding-top: 15px;
+}
